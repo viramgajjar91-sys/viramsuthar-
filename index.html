@@ -1,281 +1,132 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="hi">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Parenting Care Hub - Free Resources & Paid Consultations</title>
-  <script src="https://cdn.tailwindcss.com/3.4.17"></script>
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+  <title>Priya Sharma | Parenting Coach</title>
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
-    body {
-      font-family: 'Plus Jakarta Sans', sans-serif;
-      -webkit-tap-highlight-color: transparent;
-      user-select: none;
-    }
-    .modal-overlay {
-      display: none;
-    }
+    * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background: #faf8f5; color: #292524; padding: 20px 14px; display: flex; justify-content: center; }
+    .hub { width: 100%; max-width: 420px; background: #ffffff; border-radius: 28px; box-shadow: 0 10px 30px rgba(0,0,0,0.08); overflow: hidden; border: 1px solid #f5f5f4; }
+    .banner { background: linear-gradient(135deg, #fb7185, #f59e0b, #2dd4bf); padding: 32px 20px 24px; text-align: center; }
+    .avatar { width: 84px; height: 84px; border-radius: 50%; background: #ffffff; margin: 0 auto 12px; display: flex; align-items: center; justify-content: center; font-size: 38px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); border: 3px solid #ffffff; }
+    h1 { font-size: 22px; font-weight: 800; color: #1c1917; margin-bottom: 4px; }
+    .sub { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: #44403c; margin-bottom: 8px; }
+    .bio { font-size: 13px; color: #292524; line-height: 1.4; max-width: 300px; margin: 0 auto 16px; font-weight: 500; }
+    .social-row { display: flex; gap: 8px; justify-content: center; }
+    .btn-pill { display: inline-flex; align-items: center; gap: 6px; padding: 8px 16px; background: rgba(255,255,255,0.92); color: #1c1917; border-radius: 999px; text-decoration: none; font-size: 12px; font-weight: 700; box-shadow: 0 2px 6px rgba(0,0,0,0.06); }
+    .content { padding: 18px 16px 24px; }
+    .sec-title { font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.8px; color: #78716c; margin-bottom: 10px; display: flex; justify-content: space-between; }
+    .reels-scroll { display: flex; gap: 8px; overflow-x: auto; padding-bottom: 10px; }
+    .reel-box { min-width: 120px; background: #1c1917; color: #ffffff; border-radius: 16px; padding: 12px 10px; text-decoration: none; font-size: 11px; font-weight: 700; display: flex; flex-direction: column; justify-content: space-between; height: 80px; }
+    .reel-views { font-size: 10px; color: #fb7185; }
+    .cards-list { display: flex; flex-direction: column; gap: 12px; margin-top: 14px; }
+    .card { background: #fafaf9; border-radius: 18px; padding: 16px; border: 1px solid #e7e5e4; }
+    .card-paid { border-color: #fecdd3; background: #fff5f6; }
+    .badge { display: inline-block; padding: 3px 8px; border-radius: 999px; font-size: 10px; font-weight: 800; text-transform: uppercase; margin-bottom: 8px; }
+    .badge-free { background: #dcfce7; color: #15803d; }
+    .badge-paid { background: #ffe4e6; color: #be123c; }
+    .card-title { font-size: 14px; font-weight: 800; color: #1c1917; margin-bottom: 4px; }
+    .card-desc { font-size: 12px; color: #57534e; line-height: 1.4; margin-bottom: 12px; }
+    .btn-act { display: block; width: 100%; text-align: center; padding: 10px 14px; border-radius: 12px; text-decoration: none; font-size: 12px; font-weight: 800; border: none; cursor: pointer; }
+    .btn-rose { background: #e11d48; color: #ffffff; }
+    .guide-step { background: #ffffff; padding: 8px 10px; border-radius: 10px; margin-top: 6px; font-size: 12px; border: 1px solid #f5f5f4; }
+    details summary { font-size: 12px; font-weight: 800; color: #16a34a; cursor: pointer; outline: none; list-style: none; display: flex; align-items: center; justify-content: center; background: #dcfce7; padding: 10px; border-radius: 12px; }
+    details[open] summary { margin-bottom: 10px; background: #bbf7d0; }
+    .footer { text-align: center; font-size: 11px; color: #a8a29e; padding: 14px; border-top: 1px solid #f5f5f4; }
   </style>
 </head>
-<body class="bg-amber-50/40 text-stone-800 min-h-screen py-8 px-4 flex justify-center selection:bg-rose-100 selection:text-rose-800">
-  <div class="w-full max-w-md bg-white rounded-3xl shadow-xl border border-stone-100 overflow-hidden flex flex-col">
-    
-    <!-- Profile Header -->
-    <div id="headerBanner" class="bg-gradient-to-br from-rose-400 via-amber-300 to-teal-300 p-6 pt-8 text-center relative transition-all duration-300">
-      <div class="w-24 h-24 mx-auto rounded-full bg-white p-1 shadow-md mb-3 relative group">
-        <div class="w-full h-full rounded-full bg-amber-100 flex items-center justify-center text-4xl overflow-hidden border-2 border-white">
-          <span>👩‍👧‍👦</span>
-        </div>
-        <span class="absolute bottom-1 right-1 bg-emerald-500 text-white text-[10px] font-bold px-1.5 py-0.5 rounded-full border-2 border-white">Active</span>
-      </div>
-      <button id="openSettingsBtn" type="button" onclick="openSettingsModal()" title="Customize Your Profile" class="absolute top-4 right-4 w-9 h-9 rounded-full bg-white/90 hover:bg-white text-stone-700 flex items-center justify-center text-xs shadow-sm transition active:scale-95 cursor-pointer">
-        <i class="fa-solid fa-sliders"></i>
-      </button>
-      <h1 id="educatorName" class="text-xl font-bold text-stone-900 leading-tight">Priya Sharma</h1>
-      <p class="text-stone-700 text-xs font-semibold uppercase tracking-wider mt-1">Parenting Educator & Coach</p>
-      <p id="educatorBio" class="text-stone-800 text-xs mt-2 max-w-xs mx-auto leading-relaxed font-medium">
-        Helping mindful parents handle tantrums, screen time & gentle discipline with ease.
-      </p>
-
-      <!-- Social Links -->
-      <div class="flex items-center justify-center gap-2 mt-4">
-        <button id="btnInstagram" type="button" onclick="openInstagram()" class="flex items-center gap-1.5 px-3 py-1.5 bg-white/90 hover:bg-white text-stone-800 rounded-full text-xs font-medium shadow-sm transition active:scale-95 cursor-pointer">
-          <i class="fa-brands fa-instagram text-rose-500 text-sm"></i>
-          <span id="instaHandleText">@parentingwithpriya</span>
-        </button>
-        <button id="btnCommunity" type="button" onclick="openWhatsAppCommunity()" class="flex items-center gap-1.5 px-3 py-1.5 bg-white/90 hover:bg-white text-stone-800 rounded-full text-xs font-medium shadow-sm transition active:scale-95 cursor-pointer">
-          <i class="fa-brands fa-whatsapp text-emerald-600 text-sm"></i>
-          <span>Community</span>
-        </button>
+<body>
+  <div class="hub">
+    <!-- Header -->
+    <div class="banner">
+      <div class="avatar">👩‍👧‍👦</div>
+      <h1>Priya Sharma</h1>
+      <p class="sub">Parenting Educator & Coach</p>
+      <p class="bio">Helping mindful parents handle tantrums, screen time & gentle discipline with ease.</p>
+      <div class="social-row">
+        <a href="https://instagram.com/parentingwithpriya" target="_blank" class="btn-pill">
+          📷 <span>Instagram</span>
+        </a>
+        <a href="https://wa.me/919876543210?text=Hi%20Priya!%20I%20would%20like%20to%20join%20your%20Parenting%20WhatsApp%20Community." target="_blank" class="btn-pill">
+          💬 <span>WhatsApp</span>
+        </a>
       </div>
     </div>
 
-    <!-- Top Trending Parenting Reels Showcase -->
-    <div class="px-5 pt-3 pb-1">
-      <div class="flex items-center justify-between mb-2">
-        <span class="text-[11px] font-bold text-stone-700 uppercase tracking-wider flex items-center gap-1.5">
-          <i class="fa-brands fa-instagram text-rose-500"></i> Top Video Tips
-        </span>
-        <span class="text-[10px] text-stone-400 font-medium">Tap to preview</span>
+    <div class="content">
+      <!-- Video Tips -->
+      <div class="sec-title">
+        <span>🎬 Top Video Tips</span>
+        <span>Tap to watch</span>
       </div>
-      <div class="flex gap-2.5 overflow-x-auto pb-1.5">
-        <!-- Reel 1 -->
-        <button type="button" onclick="openReel('Stop Toddler Tantrums in 30 Seconds', '240K', 'Get down to their eye level. Speak 30% softer rather than louder to regulate their nervous system.')" class="reel-card shrink-0 w-28 bg-stone-900 text-white rounded-2xl p-2.5 flex flex-col justify-between text-left transition active:scale-95 shadow-sm hover:shadow-md relative overflow-hidden cursor-pointer">
-          <div class="flex justify-between items-center text-[10px] text-stone-300 w-full">
-            <span class="flex items-center gap-1"><i class="fa-solid fa-play text-[8px] text-rose-400"></i> 240K</span>
-            <span class="text-[10px]">⚡</span>
-          </div>
-          <p class="text-[11px] font-bold leading-tight mt-3 text-stone-100">Stop Tantrums in 30s</p>
-        </button>
-
-        <!-- Reel 2 -->
-        <button type="button" onclick="openReel('3 Magic Phrases for Bedtimes', '185K', 'Replace \'Go to sleep right now\' with \'Your body played so hard today, let us tuck it in with a story.\'')" class="reel-card shrink-0 w-28 bg-stone-900 text-white rounded-2xl p-2.5 flex flex-col justify-between text-left transition active:scale-95 shadow-sm hover:shadow-md relative overflow-hidden cursor-pointer">
-          <div class="flex justify-between items-center text-[10px] text-stone-300 w-full">
-            <span class="flex items-center gap-1"><i class="fa-solid fa-play text-[8px] text-rose-400"></i> 185K</span>
-            <span class="text-[10px]">🌙</span>
-          </div>
-          <p class="text-[11px] font-bold leading-tight mt-3 text-stone-100">Bedtime Magic Words</p>
-        </button>
-
-        <!-- Reel 3 -->
-        <button type="button" onclick="openReel('Screen Time Transition Trick', '310K', 'Give a 2-minute hands-on warning with a fun countdown ritual before turning off the TV.')" class="reel-card shrink-0 w-28 bg-stone-900 text-white rounded-2xl p-2.5 flex flex-col justify-between text-left transition active:scale-95 shadow-sm hover:shadow-md relative overflow-hidden cursor-pointer">
-          <div class="flex justify-between items-center text-[10px] text-stone-300 w-full">
-            <span class="flex items-center gap-1"><i class="fa-solid fa-play text-[8px] text-rose-400"></i> 310K</span>
-            <span class="text-[10px]">📺</span>
-          </div>
-          <p class="text-[11px] font-bold leading-tight mt-3 text-stone-100">Screen Time Transition</p>
-        </button>
+      <div class="reels-scroll">
+        <a href="https://instagram.com/parentingwithpriya" target="_blank" class="reel-box">
+          <span class="reel-views">▶ 240K views</span>
+          <span>Stop Tantrums ⚡</span>
+        </a>
+        <a href="https://instagram.com/parentingwithpriya" target="_blank" class="reel-box">
+          <span class="reel-views">▶ 185K views</span>
+          <span>Bedtime Magic 🌙</span>
+        </a>
+        <a href="https://instagram.com/parentingwithpriya" target="_blank" class="reel-box">
+          <span class="reel-views">▶ 310K views</span>
+          <span>Screen Routine 📺</span>
+        </a>
       </div>
-    </div>
 
-    <!-- Filter Tabs & Add Service Action -->
-    <div class="px-5 pt-4 pb-2 flex items-center gap-2">
-      <div class="bg-stone-100 p-1 rounded-2xl flex text-xs font-semibold text-stone-600 flex-1">
-        <button id="tabAll" type="button" onclick="filterServices('all')" class="filter-tab flex-1 py-2 rounded-xl transition bg-white text-stone-900 shadow-sm cursor-pointer">All (5)</button>
-        <button id="tabFree" type="button" onclick="filterServices('free')" class="filter-tab flex-1 py-2 rounded-xl transition hover:text-stone-900 cursor-pointer">Free (2)</button>
-        <button id="tabPaid" type="button" onclick="filterServices('paid')" class="filter-tab flex-1 py-2 rounded-xl transition hover:text-stone-900 cursor-pointer">Paid (3)</button>
-      </div>
-      <button id="openAddServiceBtn" type="button" onclick="openModal('addServiceModal')" title="Add Service or Resource" class="px-3 py-2 bg-stone-900 hover:bg-stone-800 text-white rounded-2xl text-xs font-semibold shadow-sm transition active:scale-95 flex items-center gap-1.5 shrink-0 cursor-pointer">
-        <i class="fa-solid fa-plus text-[10px]"></i>
-        <span>Add</span>
-      </button>
-    </div>
-
-    <!-- Content / Service Cards -->
-    <div id="servicesList" class="p-5 space-y-3.5 flex-1 overflow-y-auto">
-      <!-- Generated dynamically by JavaScript -->
-    </div>
-
-    <!-- Booking Modal -->
-    <div id="bookingModal" onclick="if(event.target===this) closeModal('bookingModal')" class="modal-overlay fixed inset-0 bg-stone-900/50 backdrop-blur-xs items-center justify-center p-4 z-50" style="display:none;">
-      <div class="bg-white rounded-3xl max-w-sm w-full p-5 shadow-2xl border border-stone-100 max-h-[90vh] overflow-y-auto">
-        <div class="flex items-center justify-between pb-3 border-b border-stone-100">
-          <div>
-            <h4 id="modalServiceName" class="font-bold text-stone-900 text-sm">Service Booking</h4>
-            <p id="modalServicePrice" class="text-xs font-semibold text-rose-600">₹0</p>
-          </div>
-          <button type="button" onclick="closeModal('bookingModal')" class="text-stone-400 hover:text-stone-600 w-8 h-8 rounded-full flex items-center justify-center hover:bg-stone-100 text-sm transition cursor-pointer">
-            <i class="fa-solid fa-xmark"></i>
-          </button>
+      <!-- Services -->
+      <div class="cards-list">
+        <!-- Free Guide -->
+        <div class="card">
+          <span class="badge badge-free">Free Guide</span>
+          <h2 class="card-title">5-Step Tantrum Calm-Down Protocol</h2>
+          <p class="card-desc">Quick blueprint to de-escalate meltdowns at home without shouting.</p>
+          <details>
+            <summary>📖 Tap to Read 5 Steps Right Here</summary>
+            <div class="guide-step"><b>Step 1:</b> Lower voice & get to eye level.</div>
+            <div class="guide-step"><b>Step 2:</b> Name emotion: "You really wanted that toy."</div>
+            <div class="guide-step"><b>Step 3:</b> Boundary: "It is okay to be upset, but not to hit."</div>
+            <div class="guide-step"><b>Step 4:</b> Sit quietly beside them until cry settles.</div>
+            <div class="guide-step"><b>Step 5:</b> Connect first: water & 3 deep breaths, then talk.</div>
+          </details>
         </div>
 
-        <form id="bookingForm" onsubmit="submitBooking(event)" class="mt-4 space-y-3">
-          <div>
-            <label class="block text-[11px] font-bold text-stone-700 uppercase mb-1">Parent's Name</label>
-            <input type="text" id="parentName" required placeholder="e.g., Anjali Mehta" class="w-full text-xs px-3 py-2 rounded-xl border border-stone-200 focus:outline-none focus:border-rose-500">
-          </div>
-          <div>
-            <label class="block text-[11px] font-bold text-stone-700 uppercase mb-1">Child's Age & Main Concern</label>
-            <input type="text" id="childInfo" required placeholder="e.g., 3.5 yrs, evening tantrums & bedtime fight" class="w-full text-xs px-3 py-2 rounded-xl border border-stone-200 focus:outline-none focus:border-rose-500">
-          </div>
-          <div>
-            <label class="block text-[11px] font-bold text-stone-700 uppercase mb-1">Preferred Time</label>
-            <select id="timeSlot" class="w-full text-xs px-3 py-2 rounded-xl border border-stone-200 focus:outline-none focus:border-rose-500">
-              <option value="Morning (10:00 AM - 1:00 PM)">Morning (10:00 AM - 1:00 PM)</option>
-              <option value="Afternoon (2:00 PM - 5:00 PM)">Afternoon (2:00 PM - 5:00 PM)</option>
-              <option value="Evening (6:00 PM - 8:30 PM)">Evening (6:00 PM - 8:30 PM)</option>
-            </select>
-          </div>
-
-          <div class="pt-2 space-y-2">
-            <button type="submit" class="w-full py-2.5 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl text-xs font-bold shadow-md transition active:scale-95 flex items-center justify-center gap-2 cursor-pointer">
-              <i class="fa-brands fa-whatsapp text-sm"></i> Confirm via WhatsApp Inquiry
-            </button>
-            <button type="button" onclick="openPaymentFromBooking()" class="w-full py-2 bg-stone-900 hover:bg-stone-800 text-white rounded-xl text-xs font-bold shadow-sm transition active:scale-95 flex items-center justify-center gap-2 cursor-pointer">
-              <i class="fa-solid fa-bolt text-amber-400"></i> Instant Online Payment (UPI / Card)
-            </button>
-            <p class="text-[10px] text-stone-500 text-center">Inquire first on WhatsApp or pay directly to lock your seat.</p>
-          </div>
-        </form>
-      </div>
-    </div>
-
-    <!-- Free Guide Reader Modal -->
-    <div id="guideModal" onclick="if(event.target===this) closeModal('guideModal')" class="modal-overlay fixed inset-0 bg-stone-900/50 backdrop-blur-xs items-center justify-center p-4 z-50" style="display:none;">
-      <div class="bg-white rounded-3xl max-w-sm w-full p-5 shadow-2xl border border-stone-100 max-h-[90vh] overflow-y-auto">
-        <div class="flex items-center justify-between pb-3 border-b border-stone-100">
-          <div>
-            <span class="text-[10px] font-bold text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded-full">FREE RESOURCE</span>
-            <h4 class="font-bold text-stone-900 text-sm mt-1">5-Step Tantrum Calm-Down Protocol</h4>
-          </div>
-          <button type="button" onclick="closeModal('guideModal')" class="text-stone-400 hover:text-stone-600 w-8 h-8 rounded-full flex items-center justify-center hover:bg-stone-100 text-sm transition cursor-pointer">
-            <i class="fa-solid fa-xmark"></i>
-          </button>
+        <!-- Consultation -->
+        <div class="card card-paid">
+          <span class="badge badge-paid">1-on-1 Coaching • ₹1,499</span>
+          <h2 class="card-title">Personalized 45-Min Consultation</h2>
+          <p class="card-desc">Private video call for sleep, sibling rivalry, or aggression. Includes 7 days WhatsApp support.</p>
+          <a href="https://wa.me/919876543210?text=Hello%20Priya!%20I%20want%20to%20book%20a%20Personalized%20Parenting%20Consultation%20(₹1,499)." target="_blank" class="btn-act btn-rose">
+            📅 Book Session on WhatsApp
+          </a>
         </div>
 
-        <div class="mt-4 space-y-3 text-xs text-stone-700">
-          <div class="p-3 bg-amber-50 rounded-xl border border-amber-100">
-            <p class="font-bold text-amber-900">Step 1: Lower Your Voice & Body</p>
-            <p class="mt-0.5 text-stone-600">Get down to their eye level. Speak 30% softer than usual.</p>
-          </div>
-          <div class="p-3 bg-amber-50 rounded-xl border border-amber-100">
-            <p class="font-bold text-amber-900">Step 2: Name the Emotion</p>
-            <p class="mt-0.5 text-stone-600">Say: "You really wanted that toy, and it's hard when we have to stop playing."</p>
-          </div>
-          <div class="p-3 bg-amber-50 rounded-xl border border-amber-100">
-            <p class="font-bold text-amber-900">Step 3: Hold the Boundary Gently</p>
-            <p class="mt-0.5 text-stone-600">Say: "It is okay to be upset, but it is not okay to hit."</p>
-          </div>
-          <div class="p-3 bg-amber-50 rounded-xl border border-amber-100">
-            <p class="font-bold text-amber-900">Step 4: Offer Physical Anchor</p>
-            <p class="mt-0.5 text-stone-600">Offer an open embrace or sit quietly beside them until the big cry settles.</p>
-          </div>
-          <div class="p-3 bg-amber-50 rounded-xl border border-amber-100">
-            <p class="font-bold text-amber-900">Step 5: Connect Before Teaching</p>
-            <p class="mt-0.5 text-stone-600">Once calm, offer water, take three deep belly breaths together, then talk.</p>
-          </div>
+        <!-- Masterclass -->
+        <div class="card card-paid">
+          <span class="badge badge-paid">Masterclass • ₹999</span>
+          <h2 class="card-title">Gentle Discipline Video Masterclass</h2>
+          <p class="card-desc">12 bite-sized video lessons (total 90 mins) to teach cooperation without shouting. Lifetime access.</p>
+          <a href="https://wa.me/919876543210?text=Hello%20Priya!%20I%20want%20to%20enroll%20in%20Gentle%20Discipline%20Masterclass%20(₹999)." target="_blank" class="btn-act btn-rose">
+            🎓 Enroll via WhatsApp
+          </a>
         </div>
 
-        <div class="mt-5">
-          <button type="button" onclick="copyGuideToClipboard()" class="w-full py-2 bg-stone-900 hover:bg-stone-800 text-white rounded-xl text-xs font-semibold shadow-sm transition active:scale-95 flex items-center justify-center gap-1.5 cursor-pointer">
-            <i class="fa-solid fa-check"></i> Copy Steps to Clipboard
-          </button>
+        <!-- Workshop -->
+        <div class="card card-paid">
+          <span class="badge badge-paid">Live Workshop • ₹499</span>
+          <h2 class="card-title">Screen-Free Habits Workshop</h2>
+          <p class="card-desc">Interactive 2-hour live session to build daily routine kits kids love over screens.</p>
+          <a href="https://wa.me/919876543210?text=Hello%20Priya!%20I%20want%20to%20join%20Screen-Free%20Habits%20Workshop%20(₹499)." target="_blank" class="btn-act btn-rose">
+            🎟️ Reserve Spot on WhatsApp
+          </a>
         </div>
       </div>
     </div>
 
-    <!-- Add Service Modal -->
-    <div id="addServiceModal" onclick="if(event.target===this) closeModal('addServiceModal')" class="modal-overlay fixed inset-0 bg-stone-900/50 backdrop-blur-xs items-center justify-center p-4 z-50" style="display:none;">
-      <div class="bg-white rounded-3xl max-w-sm w-full p-5 shadow-2xl border border-stone-100 max-h-[90vh] overflow-y-auto">
-        <div class="flex items-center justify-between pb-3 border-b border-stone-100">
-          <div>
-            <h4 class="font-bold text-stone-900 text-sm">Add New Service or Guide</h4>
-            <p class="text-[11px] text-stone-500">Create a new free guide or paid consultation</p>
-          </div>
-          <button type="button" onclick="closeModal('addServiceModal')" class="text-stone-400 hover:text-stone-600 w-8 h-8 rounded-full flex items-center justify-center hover:bg-stone-100 text-sm transition cursor-pointer">
-            <i class="fa-solid fa-xmark"></i>
-          </button>
-        </div>
-
-        <form id="addServiceForm" onsubmit="submitNewService(event)" class="mt-4 space-y-3">
-          <div>
-            <label class="block text-[11px] font-bold text-stone-700 uppercase mb-1">Service / Resource Title</label>
-            <input type="text" id="newTitle" required placeholder="e.g., Toddler Sleep Routine Blueprint" class="w-full text-xs px-3 py-2 rounded-xl border border-stone-200 focus:outline-none focus:border-rose-500">
-          </div>
-          <div class="grid grid-cols-2 gap-2">
-            <div>
-              <label class="block text-[11px] font-bold text-stone-700 uppercase mb-1">Type</label>
-              <select id="newType" class="w-full text-xs px-3 py-2 rounded-xl border border-stone-200 focus:outline-none focus:border-rose-500">
-                <option value="paid">Paid Service</option>
-                <option value="free">Free Resource</option>
-              </select>
-            </div>
-            <div>
-              <label class="block text-[11px] font-bold text-stone-700 uppercase mb-1">Price / Tag</label>
-              <input type="text" id="newPrice" required placeholder="e.g., ₹799 or Free" class="w-full text-xs px-3 py-2 rounded-xl border border-stone-200 focus:outline-none focus:border-rose-500">
-            </div>
-          </div>
-          <div>
-            <label class="block text-[11px] font-bold text-stone-700 uppercase mb-1">Badge Text</label>
-            <input type="text" id="newBadge" placeholder="e.g., WORKSHOP or FREE PDF" class="w-full text-xs px-3 py-2 rounded-xl border border-stone-200 focus:outline-none focus:border-rose-500">
-          </div>
-          <div>
-            <label class="block text-[11px] font-bold text-stone-700 uppercase mb-1">Short Description</label>
-            <textarea id="newDesc" rows="2" required placeholder="What parents will learn or get..." class="w-full text-xs px-3 py-2 rounded-xl border border-stone-200 focus:outline-none focus:border-rose-500"></textarea>
-          </div>
-
-          <div class="pt-2">
-            <button type="submit" class="w-full py-2.5 bg-stone-900 hover:bg-stone-800 text-white rounded-xl text-xs font-bold shadow-md transition active:scale-95 flex items-center justify-center gap-1.5 cursor-pointer">
-              <i class="fa-solid fa-plus text-xs"></i> Add to My Services Hub
-            </button>
-          </div>
-        </form>
-      </div>
+    <div class="footer">
+      <span>🟢 Hub Active • Instagram Bio Page</span>
     </div>
-
-    <!-- Instant Online Payment Modal (UPI & Gateway) -->
-    <div id="paymentModal" onclick="if(event.target===this) closeModal('paymentModal')" class="modal-overlay fixed inset-0 bg-stone-900/50 backdrop-blur-xs items-center justify-center p-4 z-50" style="display:none;">
-      <div class="bg-white rounded-3xl max-w-sm w-full p-5 shadow-2xl border border-stone-100 max-h-[90vh] overflow-y-auto">
-        <div class="flex items-center justify-between pb-3 border-b border-stone-100">
-          <div>
-            <span class="text-[10px] font-bold text-rose-600 bg-rose-50 px-2 py-0.5 rounded-full">SECURE PAYMENT</span>
-            <h4 id="payModalTitle" class="font-bold text-stone-900 text-sm mt-1">Enroll & Pay</h4>
-          </div>
-          <button type="button" onclick="closeModal('paymentModal')" class="text-stone-400 hover:text-stone-600 w-8 h-8 rounded-full flex items-center justify-center hover:bg-stone-100 text-sm transition cursor-pointer">
-            <i class="fa-solid fa-xmark"></i>
-          </button>
-        </div>
-
-        <div class="mt-4 text-center">
-          <div class="inline-block bg-amber-50 border border-amber-200 px-4 py-2 rounded-2xl mb-3">
-            <span class="text-xs text-stone-600 font-medium">Total Payable:</span>
-            <span id="payModalAmount" class="text-lg font-black text-stone-900 ml-1">₹0</span>
-          </div>
-
-          <!-- QR Simulation Box -->
-          <div class="w-44 h-44 mx-auto bg-stone-50 border-2 border-dashed border-stone-300 rounded-2xl flex flex-col items-center justify-center p-3 relative group">
-            <div class="w-32 h-32 bg-white rounded-xl shadow-inner border border-stone-200 flex flex-col items-center justify-center p-2">
-              <i class="fa-solid fa-qrcode text-6xl text-stone-800"></i>
-              <span class="text-[9px] font-bold text-stone-500 uppercase mt-1 tracking-wider">UPI SCAN & PAY</span>
-            </div>
-            <span class="text-[10px] text-stone-500 font-medium mt-1">GPay • PhonePe • Paytm • BHIM</span>
-          </div>
-
-          <div class="mt-3 p-2.5 bg-stone-50 rounded-xl border border-stone-200 flex items-center justify-between">
-            <div class="text-left">
-              <p class="text-[10px] text-stone-500 font-bold uppercase">Educator UPI ID</p>
-              <p id="displayUpiId" class="text-xs font-mono font-bold text-stone-800">priyaparenting@upi</p>
-            </div>
-            <button type="button" onclick="copyUpiId()" class="px-2.5 py-1 bg-white hover:bg-stone-100 text-stone-700 text-[11px] font-semibold rounded-lg border border-stone-300 transition active:scale-95 flex items-center gap-1 cursor-pointer">
-    
+  </div>
+</body>
+</html>
