@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title id="pageTitle">Parenting Care Hub</title>
+  <title id="pageTitle">Viram Suthar | Parenting Care Hub</title>
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
     body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background: #fdfbf7; color: #292524; padding: 16px 12px; display: flex; justify-content: center; }
@@ -21,6 +21,7 @@
     .creator-bio { font-size: 13px; color: #292524; line-height: 1.4; max-width: 320px; margin: 0 auto 14px; font-weight: 500; }
     .social-row { display: flex; gap: 8px; justify-content: center; flex-wrap: wrap; }
     .btn-pill { display: inline-flex; align-items: center; gap: 6px; padding: 8px 14px; background: rgba(255,255,255,0.94); color: #1c1917; border-radius: 999px; text-decoration: none; font-size: 12px; font-weight: 700; box-shadow: 0 2px 6px rgba(0,0,0,0.06); border: none; cursor: pointer; }
+    .btn-pill:active { transform: scale(0.96); }
     .content { padding: 16px 14px 24px; }
     .sec-title { font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.8px; color: #78716c; margin-bottom: 10px; display: flex; justify-content: space-between; align-items: center; }
     .reels-scroll { display: flex; gap: 8px; overflow-x: auto; padding-bottom: 8px; scrollbar-width: none; }
@@ -78,13 +79,13 @@
     <!-- Header Banner -->
     <div id="banner" class="banner theme-rose">
       <button class="btn-edit-header" onclick="openModal('settingsModal')">✏️ <span>Edit Profile</span></button>
-      <div class="avatar">👩‍👧‍👦</div>
-      <h1 class="creator-name" id="nameDisplay">Priya Sharma</h1>
+      <div class="avatar">👨‍👧‍👦</div>
+      <h1 class="creator-name" id="nameDisplay">Viram Suthar</h1>
       <p class="creator-title" id="titleDisplay">Parenting Educator & Coach</p>
       <p class="creator-bio" id="bioDisplay">Helping mindful parents handle tantrums, screen time & gentle discipline with ease.</p>
       <div class="social-row">
-        <a id="instaBtn" href="https://instagram.com/parentingwithpriya" target="_blank" class="btn-pill">📷 <span id="instaLabel">@parentingwithpriya</span></a>
-        <a id="waGroupBtn" href="https://wa.me/919876543210?text=Hi!%20I%20would%20like%20to%20join%20your%20Parenting%20WhatsApp%20Community." target="_blank" class="btn-pill">💬 <span>WhatsApp Community</span></a>
+        <a id="instaBtn" href="https://instagram.com/viramsuthar_" target="_blank" class="btn-pill">📷 <span id="instaLabel">@viramsuthar_</span></a>
+        <a id="waGroupBtn" href="https://wa.me/919727924571?text=Hi%20Viram!%20I%20would%20like%20to%20join%20your%20Parenting%20WhatsApp%20Community." target="_blank" class="btn-pill">💬 <span>WhatsApp Community</span></a>
       </div>
     </div>
 
@@ -120,7 +121,7 @@
     <!-- Footer -->
     <div class="footer">
       <span>🟢 Hub Live & Active</span>
-      <span onclick="openModal('settingsModal')" style="cursor:pointer; text-decoration:underline;">⚙️ Edit Name & Info</span>
+      <span onclick="openModal('settingsModal')" style="cursor:pointer; text-decoration:underline;">⚙️ Edit Details</span>
     </div>
   </div>
 
@@ -129,12 +130,12 @@
     <div class="modal-box">
       <div class="modal-header"><h3 class="modal-title">✏️ Edit Profile & Details</h3><button class="btn-close" onclick="closeModal('settingsModal')">✕</button></div>
       <form onsubmit="saveProfile(event)">
-        <div class="form-group"><label class="form-label">Your Name (Apna Naam Yaha Likhe)</label><input type="text" id="inputName" class="form-input" required placeholder="e.g. Priya Sharma ya Viram Suthar"></div>
-        <div class="form-group"><label class="form-label">Title / Profession</label><input type="text" id="inputTitle" class="form-input" required placeholder="Parenting Coach & Creator"></div>
-        <div class="form-group"><label class="form-label">Bio / Tagline</label><textarea id="inputBio" class="form-textarea" rows="2"></textarea></div>
-        <div class="form-group"><label class="form-label">Instagram Username (without @)</label><input type="text" id="inputInsta" class="form-input" placeholder="viramsuthar"></div>
-        <div class="form-group"><label class="form-label">WhatsApp Number (with country code)</label><input type="text" id="inputPhone" class="form-input" placeholder="919876543210"></div>
-        <div class="form-group"><label class="form-label">UPI ID (For GPay / PhonePe)</label><input type="text" id="inputUpi" class="form-input" placeholder="name@upi"></div>
+        <div class="form-group"><label class="form-label">Your Name</label><input type="text" id="inputName" class="form-input" required value="Viram Suthar"></div>
+        <div class="form-group"><label class="form-label">Title / Profession</label><input type="text" id="inputTitle" class="form-input" required value="Parenting Educator & Coach"></div>
+        <div class="form-group"><label class="form-label">Bio / Tagline</label><textarea id="inputBio" class="form-textarea" rows="2">Helping mindful parents handle tantrums, screen time & gentle discipline with ease.</textarea></div>
+        <div class="form-group"><label class="form-label">Instagram Username (without @)</label><input type="text" id="inputInsta" class="form-input" value="viramsuthar_"></div>
+        <div class="form-group"><label class="form-label">WhatsApp Number</label><input type="text" id="inputPhone" class="form-input" value="919727924571"></div>
+        <div class="form-group"><label class="form-label">UPI ID (For GPay / PhonePe)</label><input type="text" id="inputUpi" class="form-input" value="9727924571@upi"></div>
         <div class="form-group"><label class="form-label">Theme Color</label>
           <div class="theme-picker">
             <div class="theme-dot theme-rose selected" onclick="selectTheme('theme-rose', this)"></div>
@@ -199,7 +200,7 @@
         <div style="font-size:10px; color:#a8a29e; margin-top:2px;">GPay • PhonePe • Paytm • BHIM</div>
       </div>
       <div class="upi-pill">
-        <span id="displayUpiText">priyaparenting@upi</span>
+        <span id="displayUpiText">9727924571@upi</span>
         <button type="button" class="btn-copy" onclick="copyUpiId()">Copy UPI</button>
       </div>
       <button class="btn-submit btn-green" style="margin-top:14px;" onclick="openWhatsAppPaymentConfirm()">💬 Send Screenshot on WhatsApp</button>
@@ -241,225 +242,15 @@
 
   <script>
     var profile = {
-      name: "Priya Sharma",
+      name: "Viram Suthar",
       title: "Parenting Educator & Coach",
       bio: "Helping mindful parents handle tantrums, screen time & gentle discipline with ease.",
-      insta: "parentingwithpriya",
-      phone: "919876543210",
-      upi: "priyaparenting@upi",
+      insta: "viramsuthar_",
+      phone: "919727924571",
+      upi: "9727924571@upi",
       theme: "theme-rose"
     };
 
     var services = [
       { id: "s1", type: "free", badge: "Free Guide", price: "Free", title: "5-Step Tantrum Calm-Down Protocol", desc: "Quick blueprint to de-escalate meltdowns in public and at home without shouting.", subtext: "Instant View", btnText: "📖 Read 5 Steps", btnClass: "btn-green", action: "guide" },
-      { id: "s2", type: "paid", badge: "1-on-1 Coaching", price: "₹1,499", title: "Personalized 45-Min Parenting Consultation", desc: "Private 1-on-1 call for your child specific challenge (sleep, sibling rivalry, aggression). Includes 7 days WhatsApp support.", subtext: "Video Call", btnText: "📅 Book Session", btnClass: "btn-rose", action: "book" },
-      { id: "s3", type: "paid", badge: "Masterclass", price: "₹999", title: "Gentle Discipline Video Masterclass", desc: "12 bite-sized video lessons (total 90 mins) to teach cooperation without shouting or bribery.", subtext: "Lifetime Access", btnText: "🎓 Enroll Now", btnClass: "btn-rose", action: "book" },
-      { id: "s4", type: "paid", badge: "Live Workshop", price: "₹499", title: "Screen-Free Habits Weekend Workshop", desc: "Interactive 2-hour live session to build daily routine kits kids love over screens. Next batch this Sunday 11 AM.", subtext: "Sunday 11 AM", btnText: "🎟️ Reserve Seat", btnClass: "btn-rose", action: "book" }
-    ];
-
-    var currentTab = "all";
-    var activeBookService = null;
-
-    try {
-      var savedProf = localStorage.getItem("parenting_profile_data");
-      if (savedProf) profile = Object.assign(profile, JSON.parse(savedProf));
-      var savedServ = localStorage.getItem("parenting_services_data");
-      if (savedServ) services = JSON.parse(savedServ);
-    } catch(e) {}
-
-    function renderProfile() {
-      document.getElementById("nameDisplay").innerText = profile.name;
-      document.getElementById("titleDisplay").innerText = profile.title;
-      document.getElementById("bioDisplay").innerText = profile.bio;
-      document.getElementById("instaLabel").innerText = "@" + profile.insta;
-      document.getElementById("instaBtn").href = "https://instagram.com/" + profile.insta;
-      document.getElementById("waGroupBtn").href = "https://wa.me/" + profile.phone + "?text=Hi!%20I%20would%20like%20to%20join%20your%20Parenting%20WhatsApp%20Community.";
-      document.getElementById("displayUpiText").innerText = profile.upi;
-      document.getElementById("banner").className = "banner " + profile.theme;
-      document.getElementById("pageTitle").innerText = profile.name + " | " + profile.title;
-
-      document.getElementById("inputName").value = profile.name;
-      document.getElementById("inputTitle").value = profile.title;
-      document.getElementById("inputBio").value = profile.bio;
-      document.getElementById("inputInsta").value = profile.insta;
-      document.getElementById("inputPhone").value = profile.phone;
-      document.getElementById("inputUpi").value = profile.upi;
-    }
-
-    function renderServices() {
-      var container = document.getElementById("servicesContainer");
-      container.innerHTML = "";
-      var filtered = services.filter(function(s) {
-        return currentTab === "all" || s.type === currentTab;
-      });
-
-      filtered.forEach(function(item) {
-        var card = document.createElement("div");
-        card.className = "card " + (item.type === "paid" ? "card-paid" : "");
-        card.innerHTML = 
-          '<div class="card-head"><span class="badge ' + (item.type === "free" ? "badge-free" : "badge-paid") + '">' + item.badge + '</span><span class="card-price">' + item.price + '</span></div>' +
-          '<h2 class="card-title">' + item.title + '</h2>' +
-          '<p class="card-desc">' + item.desc + '</p>' +
-          '<div class="card-action-row"><span class="card-subtext">' + item.subtext + '</span><button class="btn-act ' + item.btnClass + '" onclick="triggerCardAction(\'' + item.id + '\')">' + item.btnText + '</button></div>';
-        container.appendChild(card);
-      });
-
-      var freeCount = services.filter(function(s){ return s.type === "free"; }).length;
-      var paidCount = services.filter(function(s){ return s.type === "paid"; }).length;
-      document.getElementById("tabAll").innerText = "All (" + services.length + ")";
-      document.getElementById("tabFree").innerText = "Free (" + freeCount + ")";
-      document.getElementById("tabPaid").innerText = "Paid (" + paidCount + ")";
-    }
-
-    function setTab(tab) {
-      currentTab = tab;
-      document.getElementById("tabAll").className = "tab-btn " + (tab === "all" ? "active" : "");
-      document.getElementById("tabFree").className = "tab-btn " + (tab === "free" ? "active" : "");
-      document.getElementById("tabPaid").className = "tab-btn " + (tab === "paid" ? "active" : "");
-      renderServices();
-    }
-
-    function triggerCardAction(serviceId) {
-      var item = services.find(function(s) { return s.id === serviceId; });
-      if (!item) return;
-      if (item.action === "guide") {
-        openModal("guideModal");
-      } else {
-        activeBookService = item;
-        document.getElementById("bookTitle").innerText = item.title;
-        document.getElementById("bookPrice").innerText = item.price;
-        openModal("bookingModal");
-      }
-    }
-
-    function openModal(id) {
-      var modal = document.getElementById(id);
-      if (modal) modal.classList.add("open");
-    }
-
-    function closeModal(id) {
-      var modal = document.getElementById(id);
-      if (modal) modal.classList.remove("open");
-    }
-
-    var selectedThemeName = profile.theme;
-    function selectTheme(theme, element) {
-      selectedThemeName = theme;
-      document.querySelectorAll(".theme-dot").forEach(function(d){ d.classList.remove("selected"); });
-      element.classList.add("selected");
-    }
-
-    function saveProfile(e) {
-      e.preventDefault();
-      profile.name = document.getElementById("inputName").value.trim() || profile.name;
-      profile.title = document.getElementById("inputTitle").value.trim() || profile.title;
-      profile.bio = document.getElementById("inputBio").value.trim() || profile.bio;
-      profile.insta = document.getElementById("inputInsta").value.trim().replace(/^@/, "") || profile.insta;
-      profile.phone = document.getElementById("inputPhone").value.trim().replace(/[^0-9]/g, "") || profile.phone;
-      profile.upi = document.getElementById("inputUpi").value.trim() || profile.upi;
-      profile.theme = selectedThemeName || profile.theme;
-
-      try {
-        localStorage.setItem("parenting_profile_data", JSON.stringify(profile));
-      } catch(err) {}
-
-      renderProfile();
-      closeModal("settingsModal");
-      showToast("Profile & Name Updated! ✅");
-    }
-
-    function addNewService(e) {
-      e.preventDefault();
-      var title = document.getElementById("newTitle").value.trim();
-      var type = document.getElementById("newType").value;
-      var price = document.getElementById("newPrice").value.trim();
-      var desc = document.getElementById("newDesc").value.trim();
-
-      services.unshift({
-        id: "s_" + Date.now(),
-        type: type,
-        badge: type === "free" ? "Free Resource" : "Custom Service",
-        price: price,
-        title: title,
-        desc: desc,
-        subtext: type === "free" ? "Free Access" : "Direct WhatsApp",
-        btnText: type === "free" ? "📖 View Resource" : "📅 Book Now",
-        btnClass: type === "free" ? "btn-green" : "btn-rose",
-        action: type === "free" ? "guide" : "book"
-      });
-
-      try { localStorage.setItem("parenting_services_data", JSON.stringify(services)); } catch(err) {}
-      renderServices();
-      closeModal("addServiceModal");
-      showToast("New service added! 🎉");
-    }
-
-    function confirmBooking(e) {
-      e.preventDefault();
-      var parent = document.getElementById("bookParent").value.trim();
-      var child = document.getElementById("bookChild").value.trim();
-      var slot = document.getElementById("bookSlot").value;
-      var srvTitle = activeBookService ? activeBookService.title : "Consultation";
-      var srvPrice = activeBookService ? activeBookService.price : "";
-
-      var text = "Hello " + profile.name + "! I want to book *" + srvTitle + "* (" + srvPrice + ").\n\n" +
-                 "• *Parent:* " + parent + "\n" +
-                 "• *Child Concern:* " + child + "\n" +
-                 "• *Slot:* " + slot;
-
-      closeModal("bookingModal");
-      window.open("https://wa.me/" + profile.phone + "?text=" + encodeURIComponent(text), "_blank");
-    }
-
-    function openPaymentFromBooking() {
-      closeModal("bookingModal");
-      if (activeBookService) {
-        document.getElementById("payServiceTitle").innerText = activeBookService.title;
-        document.getElementById("payAmount").innerText = activeBookService.price;
-      }
-      openModal("payModal");
-    }
-
-    function copyUpiId() {
-      try { navigator.clipboard.writeText(profile.upi); } catch(e) {}
-      showToast("Copied UPI ID: " + profile.upi);
-    }
-
-    function openWhatsAppPaymentConfirm() {
-      var srvTitle = activeBookService ? activeBookService.title : "Consultation";
-      var srvPrice = activeBookService ? activeBookService.price : "";
-      var text = "Hello " + profile.name + "! I made the payment for *" + srvTitle + "* (" + srvPrice + "). Sending screenshot!";
-      closeModal("payModal");
-      window.open("https://wa.me/" + profile.phone + "?text=" + encodeURIComponent(text), "_blank");
-    }
-
-    function openReel(title, views, tip) {
-      document.getElementById("reelHeading").innerText = title;
-      document.getElementById("reelViewsCount").innerText = "▶ " + views + " views";
-      document.getElementById("reelTipContent").innerText = tip;
-      openModal("reelModal");
-    }
-
-    function watchOnInstagram() {
-      closeModal("reelModal");
-      window.open("https://instagram.com/" + profile.insta, "_blank");
-    }
-
-    function copyGuideText() {
-      var txt = "5-Step Tantrum Calm-Down Protocol by " + profile.name + ":\n1. Lower Voice & Body\n2. Name Emotion\n3. Hold Boundary Gently\n4. Physical Anchor\n5. Connect Before Teaching";
-      try { navigator.clipboard.writeText(txt); } catch(e) {}
-      showToast("Guide copied! 📋");
-    }
-
-    function showToast(msg) {
-      var t = document.getElementById("toast");
-      t.innerText = msg;
-      t.style.display = "block";
-      setTimeout(function() { t.style.display = "none"; }, 2500);
-    }
-
-    renderProfile();
-    renderServices();
-  </script>
-</body>
-</html>
+      { id: "s2", type: "paid", badge: "1-on-1 Coaching", price: "₹1,499", title: "Personalized 45-Min Parenting Consultation", desc: "Private 1-on-1 call for your child specific challenge (sleep, sibling rivalry, aggression). Includes 7 days WhatsApp support.", subtext: "Video Call", btnTex
